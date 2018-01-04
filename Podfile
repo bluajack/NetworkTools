@@ -7,6 +7,7 @@ target 'NetworkTools' do
 use_frameworks!
 pod 'Alamofire'
 pod 'SwiftyJSON'
+pod 'Kingfisher'
 pod 'PINCache'
 
 end

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "NetworkTools"
-  s.version      = "1.2"
+  s.version      = "1.3"
   s.summary      = "NetworkTools."
 
   # This description is used to generate tags and improve search results.
@@ -139,7 +139,7 @@ Pod::Spec.new do |s|
     s.dependency "Alamofire"
     s.dependency "PINCache"
     s.dependency "SwiftyJSON"
-
+    s.dependency "Kingfisher"
 
 
 end

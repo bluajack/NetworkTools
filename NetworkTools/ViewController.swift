@@ -31,6 +31,11 @@ class ViewController: UIViewController {
         
         self.hotMarketRequest.requestConfig.parameter = ["codes":"000001"]
         self.hotMarketRequest.send()
+        
+        
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 100, width: 442.5, height: 299))
+        view.addSubview(imageView)
+        imageView.setImage("http://img06.tooopen.com/images/20170224/tooopen_sy_199503612842.jpg")
     }
 
 
