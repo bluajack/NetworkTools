@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		68E1608B1E6AF5F8649FA7B8 /* Pods_NetworkTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AA17FDEBBF108A17EE0E43 /* Pods_NetworkTools.framework */; };
 		9F045F371FFE19B400CC0F6C /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F045F361FFE19B400CC0F6C /* UIImageView+Extension.swift */; };
+		9F065EBD201B220500CEB0D8 /* NetworkTools.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9F065EBC201B220500CEB0D8 /* NetworkTools.podspec */; };
 		9F8097291FFB59520005E178 /* RequestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8097281FFB59510005E178 /* RequestConfig.swift */; };
 		9FE0C56E1FFB2FFC00DB5ACF /* TestApiManage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FE0C56D1FFB2FFC00DB5ACF /* TestApiManage.swift */; };
 		9FF98A051FFB23FC00DCE230 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF98A041FFB23FC00DCE230 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		3BFE4DA73B1F8F2F19CF0DE1 /* Pods-NetworkTools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkTools.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkTools/Pods-NetworkTools.release.xcconfig"; sourceTree = "<group>"; };
 		9F045F361FFE19B400CC0F6C /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		9F065EBC201B220500CEB0D8 /* NetworkTools.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkTools.podspec; sourceTree = SOURCE_ROOT; };
 		9F8097281FFB59510005E178 /* RequestConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestConfig.swift; sourceTree = "<group>"; };
 		9FE0C56D1FFB2FFC00DB5ACF /* TestApiManage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestApiManage.swift; sourceTree = "<group>"; };
 		9FF98A011FFB23FC00DCE230 /* NetworkTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 				9FF98A0B1FFB23FC00DCE230 /* Assets.xcassets */,
 				9FF98A0D1FFB23FC00DCE230 /* LaunchScreen.storyboard */,
 				9FF98A101FFB23FC00DCE230 /* Info.plist */,
+				9F065EBC201B220500CEB0D8 /* NetworkTools.podspec */,
 			);
 			path = NetworkTools;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				9FF98A0F1FFB23FC00DCE230 /* LaunchScreen.storyboard in Resources */,
 				9FF98A0C1FFB23FC00DCE230 /* Assets.xcassets in Resources */,
 				9FF98A0A1FFB23FC00DCE230 /* Main.storyboard in Resources */,
+				9F065EBD201B220500CEB0D8 /* NetworkTools.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +411,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X34M6R8ZA;
 				INFOPLIST_FILE = NetworkTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluajack.NetworkTools;
@@ -422,6 +427,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4X34M6R8ZA;
 				INFOPLIST_FILE = NetworkTools/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bluajack.NetworkTools;

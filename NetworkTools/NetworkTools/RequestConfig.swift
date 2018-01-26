@@ -22,11 +22,20 @@ public enum DataParseMethod {
     case GBK
 }
 
+// 参数编码方式
+public enum ParamsEncodeingType {
+    case URLEncode
+    case JsonEncode
+    case PropertyListEncoding
+}
+
 public class RequestConfig {
     public var host: String?                             //ip地址
     public var methodName: String?                       //方法名称
     public var method: httpMethod = .GET                 //请求方法
     public var parameter: [String: Any]?                 //请求参数
+    public var parameterEncoding: ParamsEncodeingType =  .URLEncode
+                                                         //参数编码方式
     public var headers: [String: String]?                //设置请求头
     public weak var delegate: requestCallBackDelegate?   //代理
     public var cacheMode: CacheMode = .NO_CACHE          //默认无缓存
@@ -51,9 +60,14 @@ public class RequestConfig {
         self.cacheMode  = cacheMode
         self.headers    = headers
     }
-    deinit {
+    
+    public func cancelTask() {
         for task in taskArr {
             task?.cancel()
         }
+    }
+    
+    deinit {
+        self.cancelTask()
     }
 }

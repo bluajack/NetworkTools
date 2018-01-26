@@ -34,7 +34,12 @@ struct URLSessionClient: Client {
         }
         
         let parameters: Parameters? = r.requestConfig.parameter
-        let Encoding: ParameterEncoding = r.requestConfig.method == .GET ? URLEncoding.default : URLEncoding.default
+        var Encoding: ParameterEncoding = URLEncoding.default
+        if r.requestConfig.parameterEncoding == .JsonEncode {
+            Encoding = JSONEncoding.default
+        }else if r.requestConfig.parameterEncoding == .PropertyListEncoding {
+            Encoding = PropertyListEncoding.default
+        }
         if var realReuest = try? Encoding.encode(request, with: parameters) {
             
             printLog("\n==================================\n\nRequest Start: \n\n \(realReuest.url?.absoluteString ?? "N/A")\n\n==================================")
