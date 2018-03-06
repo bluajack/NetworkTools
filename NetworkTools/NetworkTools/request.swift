@@ -13,11 +13,16 @@ public protocol Request: class {
     var requestConfig: RequestConfig { get }
     init(_ config: RequestConfig)
     func send() //发请求
+    func willSend()
 }
 
 public extension Request {
     func send() {
+        self.willSend()
         URLSessionClient().send(self)
+    }
+    func willSend() {
+        
     }
 }
 
