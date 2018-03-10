@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         imageView.setImage("http://img06.tooopen.com/images/20170224/tooopen_sy_199503612842.jpg")
     }
 
+    
 
 }
 

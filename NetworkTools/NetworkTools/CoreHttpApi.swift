@@ -19,9 +19,7 @@ protocol Client {
 struct URLSessionClient: Client {
     
     func send<T: Request>(_ r: T) {
-        guard let realHost = r.requestConfig.host  else {
-            fatalError("host不能为空")
-        }
+        let realHost = r.host
         let trueMethodName: String = "/\(r.requestConfig.methodName ?? "")"
         let url = URL(string: realHost.appending(trueMethodName))!
         var request = URLRequest(url: url)

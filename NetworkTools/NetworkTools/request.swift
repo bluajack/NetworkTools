@@ -10,6 +10,7 @@ import Foundation
 
 //MARK:- 普通请求
 public protocol Request: class {
+    var host: String { get }
     var requestConfig: RequestConfig { get }
     init(_ config: RequestConfig)
     func send() //发请求

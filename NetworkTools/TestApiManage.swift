@@ -9,12 +9,15 @@
 import Foundation
 
 class ReportRequest: Request {
+    var host: String {
+        return "http://www.8000dian.com"
+    }
+    
     
     var requestConfig: RequestConfig
     
     required init(_ config: RequestConfig) {
-        
-        config.host = "http://www.8000dian.com"
+    
         config.methodName = "report.do"
 //        config.dataParseMethod = .GBK
         config.method = .GET
@@ -23,9 +26,13 @@ class ReportRequest: Request {
 }
 
 class HotMarketRequest: Request {
+    
+    var host: String {
+        return "http://114.215.237.58:1080/api"
+    }
+    
     var requestConfig: RequestConfig
     required init(_ config: RequestConfig) {
-        config.host = "http://114.215.237.58:1080/api"
         config.methodName = "market/stocks"
         config.method = .GET
         requestConfig = config

@@ -30,7 +30,6 @@ public enum ParamsEncodeingType {
 }
 
 public class RequestConfig {
-    public var host: String?                             //ip地址
     public var methodName: String?                       //方法名称
     public var method: httpMethod = .GET                 //请求方法
     public var parameter: [String: Any]?                 //请求参数
