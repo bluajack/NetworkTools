@@ -44,6 +44,7 @@ public class RequestConfig {
     public var taskArr: [URLSessionTask?] = []           //任务
     public var url: URL?                                 //请求地址
     public var response: DefaultDataResponse?
+    public var isCloseContentPrint = false               //是否关闭网络返回数据的打印
     
     /** 默认是GET请求，方法名和参数都为nil */
     public init(delegate: requestCallBackDelegate?, cacheMode: CacheMode = .NO_CACHE) {

@@ -50,7 +50,11 @@ struct URLSessionClient: Client {
                 printLog("读取缓存中...")
                 if let callBackData = result {
                     
-                    HTTPLogger.logDebugCachedInfo(r.requestConfig.methodName, r.requestConfig.parameter, callBackData)
+                    if r.requestConfig.isCloseContentPrint {
+                        HTTPLogger.logDebugCachedInfo(r.requestConfig.methodName, r.requestConfig.parameter, "isCloseContentPrint==false,关闭返回数据打印".data(using: .utf8)!)
+                    }else {
+                        HTTPLogger.logDebugCachedInfo(r.requestConfig.methodName, r.requestConfig.parameter, callBackData)
+                    }
                     
                     DispatchQueue.main.async { r.requestConfig.delegate?.callBackSuccess(data: callBackData, request: r) }
                     
@@ -78,7 +82,11 @@ struct URLSessionClient: Client {
                 r?.requestConfig.response = response
                 if let error = response.error {
                     
-                    HTTPLogger.logDebugInfo(response: response.response, responseData: response.data, request: response.request, error: response.error)
+                    if r?.requestConfig.isCloseContentPrint != nil && r!.requestConfig.isCloseContentPrint {
+                        HTTPLogger.logDebugInfo(response: response.response, responseData: "isCloseContentPrint==false,关闭返回数据打印".data(using: .utf8)!, request: response.request, error: response.error)
+                    }else {
+                        HTTPLogger.logDebugInfo(response: response.response, responseData: response.data, request: response.request, error: response.error)
+                    }
                     
                     if r?.requestConfig.cacheMode == .REQUEST_FAILED_READ_CACHE {//请求失败读取缓存
                         let result = BKCache.shared.fetchCacheData(host: realHost, methodName: r?.requestConfig.methodName, parameters: r?.requestConfig.parameter)
@@ -106,7 +114,14 @@ struct URLSessionClient: Client {
                             }
                         }
                         
-                        HTTPLogger.logDebugInfo(response: response.response, responseData: newData, request: response.request, error: response.error)
+                        if r?.requestConfig.isCloseContentPrint != nil && r!.requestConfig.isCloseContentPrint {
+                            
+                            HTTPLogger.logDebugInfo(response: response.response, responseData: "isCloseContentPrint==false,关闭返回数据打印".data(using: .utf8)!, request: response.request, error: response.error)
+                        }else {
+                            HTTPLogger.logDebugInfo(response: response.response, responseData: newData, request: response.request, error: response.error)
+                        }
+                        
+                        
                         
                         
                         
