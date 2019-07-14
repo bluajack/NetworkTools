@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     lazy var reportRequest: ReportRequest = {
         let config = RequestConfig(delegate: self)
         let request = ReportRequest(config)
+        request.requestConfig.isCloseContentPrint = true
         return request
     }()
     
@@ -27,7 +28,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.reportRequest.send()
+        self.reportRequest.send()
         
         self.hotMarketRequest.requestConfig.parameter = ["codes":"000001"]
         self.hotMarketRequest.send()
