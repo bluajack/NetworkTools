@@ -15,6 +15,8 @@ public protocol Request: class {
     init(_ config: RequestConfig)
     func send() //发请求
     func willSend()
+    func willSuccess(data: Data, request:Request)
+    func willFailed(error: Error, request:Request)
 }
 
 public extension Request {
@@ -23,6 +25,12 @@ public extension Request {
         URLSessionClient().send(self)
     }
     func willSend() {
+        
+    }
+    func willSuccess(data: Data, request:Request) {
+        
+    }
+    func willFailed(error: Error, request:Request) {
         
     }
 }

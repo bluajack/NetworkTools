@@ -56,7 +56,9 @@ struct URLSessionClient: Client {
                         HTTPLogger.logDebugCachedInfo(r.requestConfig.methodName, r.requestConfig.parameter, callBackData)
                     }
                     
-                    DispatchQueue.main.async { r.requestConfig.delegate?.callBackSuccess(data: callBackData, request: r) }
+                    DispatchQueue.main.async {
+                        r.willSuccess(data: callBackData, request: r)
+                        r.requestConfig.delegate?.callBackSuccess(data: callBackData, request: r) }
                     
                     if r.requestConfig.cacheMode == .IF_NONE_CACHE_REQUEST {
                         return
@@ -92,13 +94,17 @@ struct URLSessionClient: Client {
                         let result = BKCache.shared.fetchCacheData(host: realHost, methodName: r?.requestConfig.methodName, parameters: r?.requestConfig.parameter)
                         printLog("请求失败,读取缓存中...")
                         if let callBackData = result {
-                            DispatchQueue.main.async { r?.requestConfig.delegate?.callBackSuccess(data: callBackData, request: r!) }
+                            DispatchQueue.main.async {
+                                r?.willSuccess(data: callBackData, request: r!)
+                                r?.requestConfig.delegate?.callBackSuccess(data: callBackData, request: r!) }
                             return
                         }else {
                             printLog("缓存读取失败")
                         }
                     }
-                    DispatchQueue.main.async { r?.requestConfig.delegate?.callBackError(error: error, request: r!) }
+                    DispatchQueue.main.async {
+                        r?.willFailed(error: error, request: r!)
+                        r?.requestConfig.delegate?.callBackError(error: error, request: r!) }
                 }else {
                     
                     if let data = response.data {
@@ -126,7 +132,9 @@ struct URLSessionClient: Client {
                         
                         
                         //假如页面返回，r和delegate则变为nil，所以不会执行回调
-                        DispatchQueue.main.async { r?.requestConfig.delegate?.callBackSuccess(data: newData, request: r!) }
+                        DispatchQueue.main.async {
+                            r?.willSuccess(data: newData, request: r!)
+                            r?.requestConfig.delegate?.callBackSuccess(data: newData, request: r!) }
                         
                         //缓存网络数据
                         if r?.requestConfig.cacheMode != .NO_CACHE {
