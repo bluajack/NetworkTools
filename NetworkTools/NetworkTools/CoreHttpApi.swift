@@ -19,9 +19,11 @@ protocol Client {
 struct URLSessionClient: Client {
     
     func send<T: Request>(_ r: T) {
-        let realHost = r.host
+        var realHost = r.host
         let trueMethodName: String = "/\(r.requestConfig.methodName ?? "")"
-        let url = URL(string: realHost + trueMethodName)!
+        realHost += trueMethodName
+        realHost = realHost.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let url = URL(string: realHost)!
         var request = URLRequest(url: url)
         request.httpMethod = r.requestConfig.method.rawValue
         // 这里设置请求头貌似无效，好像用下面realReuest有效，未去研究Alamofire源码
