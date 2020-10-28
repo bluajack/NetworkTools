@@ -58,11 +58,11 @@ class BKCache: HttpCache {
     }
     
     fileprivate func saveCache(data: Data, key: String) {
-        PINCache.shared().setObject(data, forKeyedSubscript: key)
+        PINCache.shared.setObject(NSData.init(data: data), forKey: key)
     }
     
     fileprivate func fetchCacheData(key: String) -> Data? {
-        return PINCache.shared().object(forKey: key) as? Data
+        return PINCache.shared.object(forKey: key) as? Data
     }
 }
 
